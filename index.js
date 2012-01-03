@@ -5,6 +5,8 @@ module.exports = function (from_, to_) {
     };
     
     return function (pos) {
+        if (!Array.isArray(pos)) pos = [].slice.call(arguments);
+        
         return pos.map(function (p, ix) {
             var from = trans.from[ix];
             var to = trans.to[ix];
@@ -17,6 +19,8 @@ module.exports = function (from_, to_) {
 };
 
 function normalize (coord) {
+    if (!Array.isArray(coord)) coord = [ coord ];
+    
     for (var i = 0; i < coord.length; i++) {
         if (!Array.isArray(coord[i])) {
             coord[i] = [ 0, coord[i] ];
