@@ -9,3 +9,9 @@ test('pixel to gl', function (t) {
     t.deepEqual(tr(400, 0), [ 1, -1 ], 'bottom right');
     t.end();
 });
+
+test('3d', function (t) {
+    var tr = coord([ 10, 10, 10 ], [ 1, 1, 1 ]);
+    t.deepEqual(tr(3, 4, 5), [ 0.3, 0.4, 0.5 ], '3 4 5');
+    t.end();
+});
