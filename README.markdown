@@ -55,3 +55,30 @@ output:
 ```
 [ 460, 230 ]
 ```
+
+methods
+=======
+
+var coord = require('coord')
+
+var tr = coord(from, to)
+------------------------
+
+Return a coordinate transform function `tr` mapping coordinates specified in
+`from` to coordinates specified in `to`.
+
+Each element in `from` and `to` represents a coordinate transform on a
+dimension. 
+
+Coordinate transforms can be arrays or numbers. Each number `x` in a coordinate
+transform is treated as `[ 0, x - 1 ]`.
+
+tr(pos)
+-------
+
+tr(x, y, ...)
+-------------
+
+Shorthand for `tr([ x, y, ... ])`.
+
+
