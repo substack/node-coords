@@ -1,8 +1,8 @@
 var test = require('tap').test;
-var coord = require('../');
+var coords = require('../');
 
 test('pixel to gl', function (t) {
-    var tr = coord([ 400, 300 ], [ [ -1, 1 ], [ -1, 1 ] ]);
+    var tr = coords([ 400, 300 ], [ [ -1, 1 ], [ -1, 1 ] ]);
     t.deepEqual(tr(0, 0), [ -1, -1 ], 'bottom left');
     t.deepEqual(tr(199.5, 149.5), [ 0, 0 ], 'origin');
     t.deepEqual(tr([ 199.5, 149.5 ]), [ 0, 0 ], 'origin array');
@@ -11,7 +11,7 @@ test('pixel to gl', function (t) {
 });
 
 test('pixel to flip gl', function (t) {
-    var tr = coord([ 400, 300 ], [ [ 1, -1 ], [ 1, -1 ] ]);
+    var tr = coords([ 400, 300 ], [ [ 1, -1 ], [ 1, -1 ] ]);
     t.deepEqual(tr(0, 0), [ 1, 1 ], 'bottom left');
     t.deepEqual(tr(199.5, 149.5), [ 0, 0 ], 'origin');
     t.deepEqual(tr([ 199.5, 149.5 ]), [ 0, 0 ], 'origin array');
@@ -20,7 +20,7 @@ test('pixel to flip gl', function (t) {
 });
 
 test('gl to pixel', function (t) {
-    var tr = coord([ [ -1, 1 ], [ -1, 1 ] ], [ 400, 300 ]);
+    var tr = coords([ [ -1, 1 ], [ -1, 1 ] ], [ 400, 300 ]);
     t.deepEqual(tr(-1, -1), [ 0, 0 ], 'bottom left');
     t.deepEqual(tr(0, 0), [ 199.5, 149.5 ], 'origin');
     t.deepEqual(tr(1, -1), [ 399, 0 ], 'bottom right');
@@ -28,7 +28,7 @@ test('gl to pixel', function (t) {
 });
 
 test('flip gl to pixel', function (t) {
-    var tr = coord([ [ 1, -1 ], [ 1, -1 ] ], [ 400, 300 ]);
+    var tr = coords([ [ 1, -1 ], [ 1, -1 ] ], [ 400, 300 ]);
     t.deepEqual(tr(1, 1), [ 0, 0 ], 'bottom left');
     t.deepEqual(tr(0, 0), [ 199.5, 149.5 ], 'origin');
     t.deepEqual(tr(-1, 1), [ 399, 0 ], 'bottom right');
@@ -36,7 +36,7 @@ test('flip gl to pixel', function (t) {
 });
 
 test('3d', function (t) {
-    var tr = coord(
+    var tr = coords(
         [ [ 0, 10 ], [ 0, 10 ], [ 0, 10 ] ],
         [ [ 0, 1 ], [ 0, 1 ], [ 0, 1 ] ]
     );

@@ -1,5 +1,5 @@
-coord
-=====
+coords
+======
 
 Transform coordinates.
 
@@ -10,8 +10,8 @@ gl_to_pixel.js
 --------------
 
 ``` js
-var coord = require('coord');
-var tr = coord([ 800, 600 ], [ [ -1, 1 ], [ -1, 1 ] ]);
+var coords = require('coords');
+var tr = coords([ 800, 600 ], [ [ -1, 1 ], [ -1, 1 ] ]);
 var pos = tr(460, 230);
 console.dir(pos);
 ```
@@ -28,8 +28,8 @@ flip.js
 To flip the coordinates, just put the bigger number first:
 
 ``` js
-var coord = require('coord');
-var tr = coord([ 800, 600 ], [ [ 1, -1 ], [ -1, 1 ] ]);
+var coords = require('coords');
+var tr = coords([ 800, 600 ], [ [ 1, -1 ], [ -1, 1 ] ]);
 var pos = tr(460, 230);
 console.dir(pos);
 ```
@@ -44,8 +44,8 @@ pixel_to_gl.js
 --------------
 
 ``` js
-var coord = require('coord');
-var tr = coord([ [ -1, 1 ], [ -1, 1 ] ], [ 800, 600 ]);
+var coords = require('coords');
+var tr = coords([ [ -1, 1 ], [ -1, 1 ] ], [ 800, 600 ]);
 var pos = tr([ 0.15143929912390486, -0.23205342237061766 ]);
 console.dir(pos);
 ```
@@ -59,10 +59,10 @@ output:
 methods
 =======
 
-var coord = require('coord')
+var coords = require('coords')
 
-var tr = coord(from, to)
-------------------------
+var tr = coords(from, to)
+-------------------------
 
 Return a coordinate transform function `tr` mapping coordinates specified in
 `from` to coordinates specified in `to`.
@@ -77,7 +77,7 @@ tr(pos)
 -------
 
 Transform the coordinate array `pos` given the `from` and `to` specified earlier
-in `coord(from, to)`.
+in `coords(from, to)`.
 
 tr(x, y, ...)
 -------------
@@ -90,7 +90,7 @@ install
 With [npm](http://npmjs.org) do:
 
 ```
-npm install coord
+npm install coords
 ````
 
 test
