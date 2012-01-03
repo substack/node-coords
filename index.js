@@ -23,7 +23,7 @@ function normalize (coord) {
     
     for (var i = 0; i < coord.length; i++) {
         if (!Array.isArray(coord[i])) {
-            coord[i] = [ 0, coord[i] ];
+            coord[i] = [ 0, coord[i] - 1 ];
         }
     }
     return coord;
